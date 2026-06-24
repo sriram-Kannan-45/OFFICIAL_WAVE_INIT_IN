@@ -6,7 +6,6 @@ import FeaturedProject from '@components/sections/FeaturedProject'
 import Process from '@components/sections/Process'
 import Testimonials from '@components/sections/Testimonials'
 import ContactCTA from '@components/sections/ContactCTA'
-import SmartSearch from '@components/ui/SmartSearch'
 
 const tickerItems = [
   'React.js', 'Node.js', 'Python AI', 'MongoDB', 'FastAPI',
@@ -59,14 +58,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-        <section className="py-16 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">Have a question?</h2>
-            <p className="text-text-secondary mb-8">Ask our AI assistant anything about our services.</p>
-            <SmartSearch />
-          </div>
-        </section>
 
         <About />
         <Services />

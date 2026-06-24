@@ -16,9 +16,7 @@ const LMSPortal = lazy(() => import('@pages/LMSPortal'))
 const AboutPage = lazy(() => import('@pages/About'))
 const ContactPage = lazy(() => import('@pages/Contact'))
 const PrivacyPolicy = lazy(() => import('@pages/PrivacyPolicy'))
-const SummarizerPage = lazy(() => import('@pages/Summarizer'))
 const NotFound = lazy(() => import('@pages/NotFound'))
-import ChatWidget from '@components/ui/ChatWidget'
 
 const PageLoading = () => (
   <div className="flex-grow flex items-center justify-center min-h-[60dvh]">
@@ -82,13 +80,11 @@ function App() {
             <Route path="/about" element={<AnimatedPage><AboutPage /></AnimatedPage>} />
             <Route path="/contact" element={<AnimatedPage><ContactPage /></AnimatedPage>} />
             <Route path="/privacy" element={<AnimatedPage><PrivacyPolicy /></AnimatedPage>} />
-            <Route path="/summarizer" element={<AnimatedPage><SummarizerPage /></AnimatedPage>} />
             <Route path="*" element={<AnimatedPage><NotFound /></AnimatedPage>} />
           </Routes>
         </Suspense>
       </AnimatePresence>
 
-      <ChatWidget />
       <Footer />
       <Toaster
         position="bottom-right"
