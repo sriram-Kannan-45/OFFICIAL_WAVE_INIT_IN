@@ -56,11 +56,8 @@ function App() {
     if (isInitialLoad) {
       isInitialLoad = false
       window.scrollTo(0, 0)
-      if (window.location.pathname !== '/' || window.location.hash !== '') {
-        navigate('/', { replace: true })
-      }
     }
-  }, [navigate])
+  }, [])
 
   return (
     <div className="relative min-h-[100dvh] text-text-secondary flex flex-col">
