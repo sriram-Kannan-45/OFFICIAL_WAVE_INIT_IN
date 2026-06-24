@@ -35,7 +35,7 @@ export default function LMSShowcase() {
     <section
       ref={sectionRef}
       id="lms"
-      className="relative py-32 bg-secondary-bg overflow-hidden"
+      className="relative py-20 bg-secondary-bg overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-2 gap-20 items-center">

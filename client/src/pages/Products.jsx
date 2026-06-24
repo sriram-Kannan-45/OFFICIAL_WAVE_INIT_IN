@@ -127,7 +127,7 @@ export default function ProductsPage() {
 
       <main>
         {/* Hero */}
-        <section className="neural-bg-section-alt py-24">
+        <section className="neural-bg-section-alt py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -149,7 +149,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Completed Projects */}
-        <section className="py-24 md:py-32 neural-bg-section-solid">
+        <section className="py-16 md:py-20 neural-bg-section-solid">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             {completedProjects.map((project, i) => (
               <ProjectCard key={project.title} project={project} index={i} />
@@ -184,7 +184,7 @@ export default function ProductsPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-bg-dark neural-bg-dark">
+        <section className="py-12 bg-bg-dark neural-bg-dark">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

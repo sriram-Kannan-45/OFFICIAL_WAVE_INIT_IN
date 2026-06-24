@@ -230,7 +230,7 @@ export default function ServicesPage() {
 
       <main>
         {/* Hero */}
-        <section className="neural-bg-section-alt py-24">
+        <section className="neural-bg-section-alt py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -248,7 +248,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className="py-24 md:py-32 neural-bg-section-solid">
+        <section className="py-16 md:py-20 neural-bg-section-solid">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
               {services.map((service, i) => (
@@ -259,7 +259,7 @@ export default function ServicesPage() {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 md:py-32 neural-bg-section-alt">
+        <section className="py-16 md:py-20 neural-bg-section-alt">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="text-xs font-semibold tracking-[0.1em] uppercase text-accent-600 mb-4">
@@ -278,7 +278,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-bg-dark neural-bg-dark">
+        <section className="py-12 bg-bg-dark neural-bg-dark">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

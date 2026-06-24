@@ -83,7 +83,7 @@ export default function AboutPage() {
 
       <main>
         {/* Hero */}
-        <section className="py-24 md:py-32 neural-bg-section-alt">
+        <section className="py-16 md:py-20 neural-bg-section-alt">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <motion.div
@@ -122,7 +122,7 @@ export default function AboutPage() {
         </section>
 
         {/* Mission + Vision */}
-        <section className="py-24 md:py-32 neural-bg-section-solid">
+        <section className="py-16 md:py-20 neural-bg-section-solid">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
@@ -160,7 +160,7 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="py-24 md:py-32 neural-bg-section-alt">
+        <section className="py-16 md:py-20 neural-bg-section-alt">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="text-xs font-semibold tracking-[0.1em] uppercase text-accent-600 mb-4">
@@ -195,7 +195,7 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline */}
-        <section className="py-24 md:py-32 neural-bg-section-solid">
+        <section className="py-16 md:py-20 neural-bg-section-solid">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="text-xs font-semibold tracking-[0.1em] uppercase text-accent-600 mb-4">
@@ -233,7 +233,7 @@ export default function AboutPage() {
         </section>
 
         {/* Honest Statement */}
-        <section className="py-16 md:py-20">
+        <section className="py-12 md:py-14">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

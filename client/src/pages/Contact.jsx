@@ -145,7 +145,7 @@ export default function ContactPage() {
 
       <main>
         {/* Hero */}
-        <section className="neural-bg-section-alt py-24">
+        <section className="neural-bg-section-alt py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -163,7 +163,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Section */}
-        <section className="py-24 md:py-32 neural-bg-section-solid">
+        <section className="py-16 md:py-20 neural-bg-section-solid">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
               {/* Left - Info (40%) */}
@@ -312,7 +312,7 @@ export default function ContactPage() {
         </section>
 
         {/* Direct email CTA */}
-        <section className="py-16 neural-bg-section-alt border-t border-border-light">
+        <section className="py-10 neural-bg-section-alt border-t border-border-light">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

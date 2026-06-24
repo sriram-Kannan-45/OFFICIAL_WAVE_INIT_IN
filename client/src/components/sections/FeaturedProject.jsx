@@ -18,7 +18,7 @@ export default function FeaturedProject() {
     <section
       ref={sectionRef}
       id="our-work"
-      className="py-24 md:py-32 neural-bg-section-solid overflow-hidden"
+      className="py-16 md:py-20 neural-bg-section-solid overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">

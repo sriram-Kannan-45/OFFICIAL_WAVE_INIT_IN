@@ -36,7 +36,7 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section id="trust" className="py-24 md:py-32 neural-bg-section-solid overflow-hidden">
+    <section id="trust" className="py-16 md:py-20 neural-bg-section-solid overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">

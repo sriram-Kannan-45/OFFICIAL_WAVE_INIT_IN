@@ -418,7 +418,7 @@ export default function LMSPortal() {
             }}
           />
           <div className="hero-bottom-fade" style={{ background: 'linear-gradient(to bottom, transparent, rgba(248, 253, 249, 0.95))' }} />
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-28 lg:py-0 flex flex-col justify-center min-h-screen lg:min-h-0">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 md:py-16 lg:py-0 flex flex-col justify-center min-h-screen lg:min-h-0">
             <div className="w-full flex justify-start mb-6">
               <Link
                 to="/products"
@@ -539,7 +539,7 @@ export default function LMSPortal() {
         </section>
 
         {/* Features */}
-        <section className="py-24 md:py-32 neural-bg-section-alt border-t border-slate-200">
+        <section className="py-16 md:py-20 neural-bg-section-alt border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionTitle
               eyebrow="FEATURES"
@@ -555,7 +555,7 @@ export default function LMSPortal() {
         </section>
 
         {/* How It Works - Tabs */}
-        <section className="py-24 md:py-32 neural-bg-section-solid">
+        <section className="py-16 md:py-20 neural-bg-section-solid">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionTitle
               eyebrow="HOW IT WORKS"
@@ -693,7 +693,7 @@ export default function LMSPortal() {
         </section>
 
         {/* Roles */}
-        <section className="py-24 md:py-32 neural-bg-section-alt border-t border-slate-200">
+        <section className="py-16 md:py-20 neural-bg-section-alt border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionTitle
               eyebrow="ROLES"
@@ -708,7 +708,7 @@ export default function LMSPortal() {
         </section>
 
         {/* Tech Stack */}
-        <section className="py-24 md:py-32 relative overflow-hidden neural-bg-dark"
+        <section className="py-16 md:py-20 relative overflow-hidden neural-bg-dark"
           style={{ background: 'linear-gradient(135deg, #0f172a 0%, #052e16 100%)' }}
         >
           <div
@@ -765,7 +765,7 @@ export default function LMSPortal() {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 md:py-32 neural-bg-section-alt">
+        <section className="py-16 md:py-20 neural-bg-section-alt">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionTitle
               eyebrow="FAQ"
@@ -781,7 +781,7 @@ export default function LMSPortal() {
 
         {/* Final CTA */}
         <section
-          className="py-20 md:py-24 relative overflow-hidden neural-bg-dark"
+          className="py-12 md:py-16 relative overflow-hidden neural-bg-dark"
           style={{ background: 'linear-gradient(135deg, #0f172a 0%, #052e16 100%)' }}
         >
           <div className="absolute inset-0"

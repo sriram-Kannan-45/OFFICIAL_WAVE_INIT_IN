@@ -84,7 +84,7 @@ function ServiceCard({ service, index }) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 neural-bg-section-alt">
+    <section id="services" className="py-16 md:py-20 neural-bg-section-alt">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
