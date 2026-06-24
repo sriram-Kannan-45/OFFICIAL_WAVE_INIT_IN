@@ -16,10 +16,28 @@ const PORT = process.env.PORT || 6000
 
 // Middleware
 app.use(compression())
+
+const whitelist = [
+  'https://waveinit.com',
+  'https://www.waveinit.com',
+  'https://official-wave-init-in.vercel.app',
+  'http://localhost:4000',
+  'http://127.0.0.1:4000'
+]
+
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? ['https://waveinit.com', 'https://www.waveinit.com']
-    : ['http://localhost:4000', 'http://127.0.0.1:4000'],
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true)
+    const isAllowed = whitelist.indexOf(origin) !== -1 ||
+                      origin.endsWith('.vercel.app') ||
+                      origin.startsWith('http://localhost:') ||
+                      origin.startsWith('http://127.0.0.1:')
+    if (isAllowed) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   credentials: true,
 }))
 app.use(express.json({ limit: '10mb' }))
