@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const { MongoMemoryServer } = require('mongodb-memory-server')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const path = require('path')
@@ -52,10 +53,18 @@ const connectDB = async () => {
     })
     console.log(`MongoDB Connected: ${conn.connection.host}`)
   } catch (error) {
-    console.error(`MongoDB Connection Error: ${error.message}`)
-    // Don't exit on connection failure in dev, just log
-    if (process.env.NODE_ENV === 'production') {
-      process.exit(1)
+    console.error(`MongoDB Atlas Connection Error: ${error.message}`)
+    console.log('Falling back to in-memory MongoDB...')
+    try {
+      const memoryServer = await MongoMemoryServer.create()
+      const memoryUri = memoryServer.getUri()
+      const conn = await mongoose.connect(memoryUri)
+      console.log(`MongoDB Connected (Memory): ${conn.connection.host}`)
+    } catch (memoryError) {
+      console.error(`MongoDB Memory Server also failed: ${memoryError.message}`)
+      if (process.env.NODE_ENV === 'production') {
+        process.exit(1)
+      }
     }
   }
 }
