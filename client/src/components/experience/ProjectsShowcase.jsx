@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import useReveal from './useReveal'
+import TiltCard from './TiltCard'
 
 /**
  * Real Wave Init work — from the existing Products/LMS pages.
@@ -72,16 +73,19 @@ export default function ProjectsShowcase() {
       <div ref={rowsRef}>
         {PROJECTS.map((p, i) => (
           <div key={p.name} className={`wi-project-row ${i % 2 ? 'wi-row-flip' : ''}`}>
-            <div
+            <TiltCard
+              as="div"
               className="wi-project-shot"
               role="img"
               aria-label={`Preview of ${p.name}`}
               style={i % 2 ? { order: 2 } : undefined}
+              maxTilt={7}
+              glare={true}
             >
               <div className="wi-shot-bar">
                 <i /><i /><i />
               </div>
-            </div>
+            </TiltCard>
             <div className="wi-project-info">
               <span className="wi-project-cat">{p.cat}</span>
               <h3>{p.name}</h3>

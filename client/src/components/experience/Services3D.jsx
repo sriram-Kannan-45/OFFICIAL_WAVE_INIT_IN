@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import useReveal from './useReveal'
+import TiltCard from './TiltCard'
 
 const SERVICES = [
   { icon: '◈', name: 'AI Solutions', body: 'Custom AI features — chatbots, assistants, generative tools — integrated into real products.' },
@@ -49,11 +50,17 @@ export default function Services3D() {
 
       <div className="wi-services-stage" ref={stageRef}>
         {SERVICES.map((s) => (
-          <article key={s.name} className="wi-glass wi-service-card wi-reveal">
+          <TiltCard
+            key={s.name}
+            as="article"
+            className="wi-glass wi-service-card wi-reveal"
+            maxTilt={8}
+            glare={true}
+          >
             <div className="wi-ic">{s.icon}</div>
             <h3>{s.name}</h3>
             <p>{s.body}</p>
-          </article>
+          </TiltCard>
         ))}
       </div>
     </section>

@@ -1,8 +1,11 @@
 import { Helmet } from 'react-helmet-async'
+import 'lenis/dist/lenis.css'
+import useLenisScroll from '@hooks/useLenisScroll'
 import Preloader from './Preloader'
 import ImmersiveHero from './ImmersiveHero'
 import About3D from './About3D'
 import Services3D from './Services3D'
+import Story3DSection from '@components/sections/Story3DSection'
 import WhyWaveInit from './WhyWaveInit'
 import Process3D from './Process3D'
 import TechEcosystem from './TechEcosystem'
@@ -13,7 +16,15 @@ import Testimonials3D from './Testimonials3D'
 import FinalCTAContact from './FinalCTAContact'
 import ExperienceNav from './ExperienceNav'
 
+const tickerItems = [
+  'React.js', 'Node.js', 'Python AI', 'MongoDB', 'FastAPI',
+  'Tailwind CSS', 'TypeScript', 'TensorFlow', 'Socket.IO',
+  'PostgreSQL', 'OpenAI', 'JWT Auth',
+]
+
 export default function ImmersiveHome() {
+  useLenisScroll()
+
   return (
     <div className="wi-experience">
       <Helmet>
@@ -32,8 +43,30 @@ export default function ImmersiveHome() {
 
       <main>
         <ImmersiveHero />
+
+        {/* Tech Stack Ticker Strip */}
+        <div
+          className="ticker-wrapper"
+          style={{
+            background: '#ffffff',
+            borderTop: '1px solid #e2e8f0',
+            borderBottom: '1px solid #e2e8f0',
+            padding: '16px 0',
+          }}
+        >
+          <div className="ticker-track">
+            {[...tickerItems, ...tickerItems].map((item, i) => (
+              <span key={`${item}-${i}`} className="ticker-item" style={{ color: '#334155' }}>
+                {item}
+                <span className="ticker-dot" style={{ color: '#16a34a' }}>●</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
         <About3D />
         <Services3D />
+        <Story3DSection />
         <WhyWaveInit />
         <Process3D />
         <TechEcosystem />
@@ -59,6 +92,7 @@ export default function ImmersiveHome() {
           <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#story">Story</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#process">Process</a></li>
           </ul>

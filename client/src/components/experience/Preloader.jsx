@@ -69,7 +69,7 @@ export default function Preloader({ onDone }) {
         const alpha = 0.35 + 0.5 * ease
         ctx.fillStyle = `rgba(34,197,94,${alpha.toFixed(3)})`
         ctx.beginPath()
-        ctx.arc(tx, ty, p.s * (0.6 + ease), 0, Math.PI * 2)
+        ctx.arc(tx, ty, Math.max(0.1, p.s * (0.6 + ease)), 0, Math.PI * 2)
         ctx.fill()
         // trailing stream
         ctx.strokeStyle = `rgba(34,197,94,${(0.12 * ease).toFixed(3)})`

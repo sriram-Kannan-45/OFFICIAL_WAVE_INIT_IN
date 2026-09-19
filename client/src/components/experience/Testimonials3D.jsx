@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import useReveal from './useReveal'
+import TiltCard from './TiltCard'
 
 /**
  * Community & collaboration feedback placeholders.
@@ -59,13 +60,19 @@ export default function Testimonials3D() {
 
       <div className="wi-quote-row" ref={rowRef}>
         {QUOTES.map((q) => (
-          <blockquote key={q.name} className="wi-glass wi-quote wi-reveal">
+          <TiltCard
+            key={q.name}
+            as="blockquote"
+            className="wi-glass wi-quote wi-reveal"
+            maxTilt={6}
+            glare={true}
+          >
             <p>{q.quote}</p>
             <footer>
               <b>{q.name}</b>
               {q.org}
             </footer>
-          </blockquote>
+          </TiltCard>
         ))}
       </div>
     </section>
