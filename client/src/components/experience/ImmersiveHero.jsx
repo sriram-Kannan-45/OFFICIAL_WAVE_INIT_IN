@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react'
-import WaveEngine from './WaveEngine'
+import { Suspense, lazy, useEffect, useRef, useState } from 'react'
+
+const HeroScene = lazy(() => import('./HeroScene'))
 
 const CHIPS = [
   { label: 'AI', top: '16%', left: '9%', delay: '0s' },
@@ -13,37 +14,50 @@ const CHIPS = [
 ]
 
 export default function ImmersiveHero() {
-  const canvasRef = useRef(null)
   const sectionRef = useRef(null)
-  const engineRef = useRef(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [mount3D, setMount3D] = useState(false)
 
   useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const isMobile = window.matchMedia('(max-width: 720px)').matches
-    const engine = new WaveEngine(canvasRef.current, {
-      density: isMobile ? 0.45 : 1,
-      showNodes: !isMobile,
-    })
-    engineRef.current = engine
+    const el = sectionRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setMount3D(true)
+      },
+      { threshold: 0.05 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
 
+  useEffect(() => {
     const onScroll = () => {
       const r = sectionRef.current.getBoundingClientRect()
       const total = r.height + window.innerHeight
-      const passed = Math.min(1, Math.max(0, -r.top / total + 0.5))
-      engine.setScroll(passed)
+      setScrollProgress(Math.min(1, Math.max(0, -r.top / total + 0.5)))
     }
     window.addEventListener('scroll', onScroll, { passive: true })
-    if (!reduce) engine.start()
     onScroll()
-    return () => {
-      engine.destroy()
-      window.removeEventListener('scroll', onScroll)
-    }
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 720px)').matches
 
   return (
     <section id="home" ref={sectionRef} className="wi-section wi-hero" aria-label="Wave Init hero">
-      <canvas ref={canvasRef} className="wi-hero-canvas" aria-hidden="true" />
+      {mount3D && (
+        <div className="wi-hero-canvas" aria-hidden="true">
+          <Suspense fallback={null}>
+            <HeroScene
+              scrollProgress={scrollProgress}
+              reduced={reduce}
+              isMobile={isMobile}
+            />
+          </Suspense>
+        </div>
+      )}
 
       {/* floating glass chips (desktop) */}
       <div className="wi-chip-field" aria-hidden="true">
