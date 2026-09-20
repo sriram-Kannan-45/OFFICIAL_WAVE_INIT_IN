@@ -55,8 +55,52 @@ function seoSyncPlugin() {
   }
 }
 
+function devContactApiPlugin() {
+  return {
+    name: 'vite-plugin-dev-contact-api',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        if (req.url === '/api/contact' && req.method === 'POST') {
+          let body = ''
+          req.on('data', (chunk) => {
+            body += chunk
+          })
+          req.on('end', async () => {
+            try {
+              const { default: handler } = await import('./api/contact.js')
+              const parsed = JSON.parse(body || '{}')
+              await handler(
+                { method: 'POST', body: parsed },
+                {
+                  setHeader: (k, v) => res.setHeader(k, v),
+                  status: (code) => {
+                    res.statusCode = code
+                    return {
+                      json: (data) => {
+                        res.setHeader('Content-Type', 'application/json')
+                        res.end(JSON.stringify(data))
+                      },
+                      end: () => res.end(),
+                    }
+                  },
+                }
+              )
+            } catch (err) {
+              res.statusCode = 500
+              res.setHeader('Content-Type', 'application/json')
+              res.end(JSON.stringify({ success: false, message: err.message }))
+            }
+          })
+          return
+        }
+        next()
+      })
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), seoSyncPlugin()],
+  plugins: [react(), tailwindcss(), seoSyncPlugin(), devContactApiPlugin()],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),

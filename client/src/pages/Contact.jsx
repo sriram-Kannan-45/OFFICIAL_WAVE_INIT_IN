@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import SEO from '@components/SEO'
 import { motion } from 'framer-motion'
-import { Mail, Briefcase, Camera, Send, CheckCircle2, Clock, ChevronDown } from 'lucide-react'
+import { Mail, Briefcase, Camera, Send, CheckCircle2, Clock, ChevronDown, AlertCircle } from 'lucide-react'
 import { toast } from 'react-hot-toast'
 import { cn } from '@lib/utils'
 
@@ -109,27 +109,34 @@ export default function ContactPage() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
+    setErrorMessage('')
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-      const data = await res.json()
-      if (data.success) {
+      const data = await res.json().catch(() => ({}))
+      if (res.ok && data.success) {
         setSubmitted(true)
         setFormData({ name: '', email: '', projectType: '', message: '' })
-        toast.success(data.message)
-        setTimeout(() => setSubmitted(false), 4000)
+        toast.success(data.message || 'Message sent! We will reply within 24 hours.')
+        setTimeout(() => setSubmitted(false), 5000)
       } else {
-        toast.error(data.message || 'Something went wrong')
+        const msg = data.message || 'Failed to send message. Please try again.'
+        setErrorMessage(msg)
+        toast.error(msg)
       }
-    } catch {
-      toast.error('Failed to send message. Please try again.')
+    } catch (err) {
+      console.error('Contact submission error:', err)
+      const msg = 'Failed to send message. Please try again or email wave.init.45@gmail.com directly.'
+      setErrorMessage(msg)
+      toast.error(msg)
     } finally {
       setLoading(false)
     }
@@ -296,7 +303,15 @@ export default function ContactPage() {
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.5 }}
+                        className="space-y-4"
                       >
+                        {errorMessage && (
+                          <div className="flex items-center gap-2 p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs font-medium text-red-700">
+                            <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />
+                            <span>{errorMessage}</span>
+                          </div>
+                        )}
+
                         <button
                           type="submit"
                           disabled={submitted || loading}

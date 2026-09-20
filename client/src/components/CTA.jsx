@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Mail, Send, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Mail, Send, CheckCircle2, ArrowRight, AlertCircle } from 'lucide-react'
+import { toast } from 'react-hot-toast'
 
 const LinkedInIcon = ({ className = 'w-5 h-5' }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -18,23 +19,37 @@ const InstagramIcon = ({ className = 'w-5 h-5' }) => (
 export default function CTA() {
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSending(true)
+    setErrorMessage('')
+    const form = e.currentTarget
     try {
-      const form = new FormData(e.target)
-      const payload = Object.fromEntries(form.entries())
-      await fetch('/api/contact', {
+      const formData = new FormData(form)
+      const payload = Object.fromEntries(formData.entries())
+
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
+
+      const data = await res.json().catch(() => ({}))
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Failed to send message. Please try again.')
+      }
+
       setSent(true)
-      e.target.reset()
-    } catch {
-      // Keep form usable even if backend mock is unreachable
-      setSent(true)
+      toast.success(data.message || 'Message sent! We will reply within 24 hours.')
+      form.reset()
+      setTimeout(() => setSent(false), 5000)
+    } catch (err) {
+      console.error('Contact submission error:', err)
+      setErrorMessage(err.message || 'Failed to send message. Please email us directly at wave.init.45@gmail.com.')
+      toast.error(err.message || 'Failed to send message.')
     } finally {
       setSending(false)
     }
@@ -142,6 +157,13 @@ export default function CTA() {
                 className="w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200 focus:border-[#16a34a] focus:ring-2 focus:ring-green-400/20 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all resize-none"
               />
             </div>
+
+            {errorMessage && (
+              <div className="flex items-center gap-2 p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs font-medium text-red-700">
+                <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />
+                <span>{errorMessage}</span>
+              </div>
+            )}
 
             <button
               type="submit"
