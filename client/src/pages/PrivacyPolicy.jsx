@@ -1,11 +1,11 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '@components/SEO'
 import { motion } from 'framer-motion'
 import { Shield, ArrowLeft } from 'lucide-react'
 
 const sections = [
   {
     title: '1. Introduction',
-    content: 'WAVE INIT ("we", "us", or "our") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website and use our services.',
+    content: 'WAVE INIT SOLUTIONS ("we", "us", or "our") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website and use our services.',
   },
   {
     title: '2. Information We Collect',
@@ -44,10 +44,11 @@ const sections = [
 export default function PrivacyPolicy() {
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy — WAVE INIT</title>
-        <meta name="description" content="WAVE INIT Privacy Policy. Learn how we collect, use, and protect your personal information." />
-      </Helmet>
+      <SEO
+        title="Privacy Policy | Wave Init Solutions"
+        description="Privacy Policy for Wave Init Solutions. Details on how we collect, handle, and protect user data."
+        pathname="/privacy"
+      />
 
       <main>
         {/* Hero */}

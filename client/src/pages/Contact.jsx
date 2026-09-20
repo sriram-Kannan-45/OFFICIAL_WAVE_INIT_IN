@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '@components/SEO'
 import { motion } from 'framer-motion'
 import { Mail, Briefcase, Camera, Send, CheckCircle2, Clock, ChevronDown } from 'lucide-react'
 import { toast } from 'react-hot-toast'
@@ -141,13 +141,11 @@ export default function ContactPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact — WAVE INIT | Get in Touch</title>
-        <meta
-          name="description"
-          content="Contact WAVE INIT for AI product development, LMS portals, and custom AI solutions. We reply within 24 hours."
-        />
-      </Helmet>
+      <SEO
+        title="Contact Wave Init Solutions"
+        description="Contact Wave Init Solutions for AI product development, full-stack software, GenAI solutions, and intelligent workflow automation."
+        pathname="/contact"
+      />
 
       <main>
         {/* Hero */}

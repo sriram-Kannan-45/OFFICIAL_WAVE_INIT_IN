@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '@components/SEO'
 import { motion } from 'framer-motion'
 import {
   ArrowRight,
@@ -73,13 +73,11 @@ const stats = [
 export default function AboutPage() {
   return (
     <>
-      <Helmet>
-        <title>About — WAVE INIT | AI Product Development Studio</title>
-        <meta
-          name="description"
-          content="We're an AI product development studio. Two shipped projects so far — actively seeking our next client partner. Learn our story, mission, and how we work."
-        />
-      </Helmet>
+      <SEO
+        title="About Wave Init Solutions | AI & Software Development"
+        description="Wave Init Solutions builds modern software products combining applied AI, full-stack technologies, GenAI, and modern web development through AI-assisted engineering workflows."
+        pathname="/about"
+      />
 
       <main>
         {/* Hero */}
@@ -92,12 +90,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.4 }}
               >
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-text-primary leading-tight mb-6">
-                  We're WAVE INIT.
+                  We're WAVE INIT SOLUTIONS.
                   <br />
                   We <span className="text-accent-600">Build</span> AI-Powered <span className="text-accent-600">Digital</span> Products.
                 </h1>
                 <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto">
-                  WAVE INIT is a forward-thinking AI startup dedicated to building intelligent, scalable, and beautiful software products. We are not just developers — we are product thinkers, AI architects, and growth partners.
+                  WAVE INIT SOLUTIONS is a forward-thinking AI product studio dedicated to building intelligent, scalable, and robust software products using modern AI-assisted development workflows.
                 </p>
               </motion.div>
             </div>

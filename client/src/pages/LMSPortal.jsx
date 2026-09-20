@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '@components/SEO'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import {
@@ -394,13 +394,11 @@ export default function LMSPortal() {
 
   return (
     <>
-      <Helmet>
-        <title>AI LMS Portal &mdash; A Product by WAVE INIT</title>
-        <meta
-          name="description"
-          content="A production-ready AI-powered learning management system built by WAVE INIT. Available for deployment or customization."
-        />
-      </Helmet>
+      <SEO
+        title="AI Learning Management System | Wave Init Solutions"
+        description="A production-ready AI-powered learning management system engineered by Wave Init Solutions. Features adaptive curriculums, automated smart assessments, real-time proctoring, and comprehensive analytics."
+        pathname="/lms"
+      />
 
       <main>
         {/* Hero */}

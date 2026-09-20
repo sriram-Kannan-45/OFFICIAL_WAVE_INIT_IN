@@ -1,14 +1,16 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '@components/SEO'
 import { motion } from 'framer-motion'
 import { Home, ArrowLeft, Waves } from 'lucide-react'
 
 export default function NotFound() {
   return (
     <>
-      <Helmet>
-        <title>404 — Page Not Found | WAVE INIT</title>
-        <meta name="description" content="The page you're looking for doesn't exist. Return to WAVE INIT home." />
-      </Helmet>
+      <SEO
+        title="404 — Page Not Found | Wave Init Solutions"
+        description="The page you are looking for does not exist. Return to Wave Init Solutions home."
+        pathname="/404"
+        noindex={true}
+      />
 
       <main className="pt-24 min-h-[calc(100dvh-80px)] flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">

@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '@components/SEO'
 import { motion } from 'framer-motion'
 import {
   ArrowRight,
@@ -117,13 +117,11 @@ function ProjectCard({ project, index }) {
 export default function ProductsPage() {
   return (
     <>
-      <Helmet>
-        <title>Our Work — WAVE INIT | AI Development Projects</title>
-        <meta
-          name="description"
-          content="See what WAVE INIT has built. Two shipped products — real projects, real code, real AI. Let's build your next one together."
-        />
-      </Helmet>
+      <SEO
+        title="Products | Wave Init Solutions"
+        description="Explore production AI products, full-stack web platforms, and intelligent software solutions engineered and shipped by Wave Init Solutions."
+        pathname="/products"
+      />
 
       <main>
         {/* Hero */}

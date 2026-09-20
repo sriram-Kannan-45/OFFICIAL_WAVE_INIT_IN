@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '@components/SEO'
 import { motion } from 'framer-motion'
 import {
   Network,
@@ -220,13 +220,11 @@ function FAQItem({ faq, index }) {
 export default function ServicesPage() {
   return (
     <>
-      <Helmet>
-        <title>Services — WAVE INIT | AI Product Development</title>
-        <meta
-          name="description"
-          content="Full-service AI product development, LMS portals, ML models, chatbots, and consulting. Build intelligent software with WAVE INIT."
-        />
-      </Helmet>
+      <SEO
+        title="AI & Full Stack Development Services | Wave Init Solutions"
+        description="Comprehensive AI software development, full-stack web development, GenAI solutions, machine learning models, LMS platforms, and intelligent automation by Wave Init Solutions."
+        pathname="/services"
+      />
 
       <main>
         {/* Hero */}
