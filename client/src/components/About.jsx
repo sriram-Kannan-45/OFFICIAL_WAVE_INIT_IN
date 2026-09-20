@@ -70,6 +70,31 @@ export default function About() {
           )
         })}
       </div>
+
+      {/* Trust & Registration Badge */}
+      <div className="mt-8 flex items-center justify-start">
+        <div className="inline-flex flex-col sm:flex-row sm:items-center gap-3.5 px-5 py-3.5 bg-white/80 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-green-50 border border-green-200/70 flex items-center justify-center text-[#16a34a] flex-shrink-0">
+            <ShieldCheck className="w-5 h-5" />
+          </div>
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold text-slate-900 tracking-tight">
+                Registered MSME Enterprise
+              </span>
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-green-100 text-[#15803d]">
+                MSME Registered
+              </span>
+            </div>
+            <div className="text-xs text-slate-600 mt-0.5">
+              Udyam Registration No.{' '}
+              <span className="font-mono font-bold text-slate-800 tracking-wider">
+                UDYAM-TN-20-0250320
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

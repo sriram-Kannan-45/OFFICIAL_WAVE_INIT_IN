@@ -157,8 +157,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            © {new Date().getFullYear()} WAVE INIT SOLUTIONS. All rights reserved.
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-center sm:text-left">
+            <div>
+              © {new Date().getFullYear()} WAVE INIT SOLUTIONS. All rights reserved.
+            </div>
+            <span className="hidden sm:inline text-slate-300">•</span>
+            <div className="text-slate-500 font-medium">
+              MSME Registered | <span className="font-mono text-slate-600">UDYAM-TN-20-0250320</span>
+            </div>
           </div>
           <div className="flex items-center gap-6">
             <span>Built with modern AI engineering & full-stack rigor.</span>

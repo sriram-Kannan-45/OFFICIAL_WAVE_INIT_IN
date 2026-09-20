@@ -11,6 +11,7 @@ import {
   Lightbulb,
   Globe,
   TrendingUp,
+  ShieldCheck,
 } from 'lucide-react'
 
 const values = [
@@ -115,6 +116,36 @@ export default function AboutPage() {
                   <div className="text-sm text-text-muted mt-1">{s.label}</div>
                 </div>
               ))}
+            </motion.div>
+
+            {/* MSME Trust Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="mt-8 flex justify-center"
+            >
+              <div className="inline-flex flex-col sm:flex-row items-center gap-3.5 px-5 py-3.5 bg-white border border-border-light rounded-2xl shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-accent-50 border border-accent-200/80 flex items-center justify-center text-accent-600 flex-shrink-0">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div className="text-center sm:text-left">
+                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <span className="text-xs font-bold text-text-primary tracking-tight">
+                      Registered MSME Enterprise
+                    </span>
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-accent-100 text-green-800">
+                      MSME Registered
+                    </span>
+                  </div>
+                  <div className="text-xs text-text-muted mt-0.5">
+                    Udyam Registration No.{' '}
+                    <span className="font-mono font-bold text-text-primary tracking-wider">
+                      UDYAM-TN-20-0250320
+                    </span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
