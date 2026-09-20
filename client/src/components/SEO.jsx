@@ -10,16 +10,16 @@ export default function SEO({
   noindex = false,
   includeSchema = true,
 }) {
-  const canonicalUrl = `${SITE_URL}${pathname === '/' ? '' : pathname}`
+  const canonicalUrl = `${SITE_URL}${pathname === '/' ? '/' : pathname}`
 
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: SITE_CONFIG.name,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     logo: SITE_CONFIG.logo,
     description:
-      'Wave Init Solutions provides AI software development, full-stack development, GenAI solutions, web development and intelligent digital product solutions.',
+      'Wave Init Solutions provides AI software development, full-stack development, web development, GenAI solutions, AI-assisted product development and intelligent digital automation solutions.',
     sameAs: [
       SITE_CONFIG.social.linkedin,
       SITE_CONFIG.social.instagram,
@@ -35,7 +35,7 @@ export default function SEO({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_CONFIG.name,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
   }
 
   return (

@@ -2,10 +2,10 @@
  * Centralized Production Site Configuration for WAVE INIT SOLUTIONS
  * 
  * To override the production domain, set VITE_SITE_URL in your deployment environment:
- * e.g. VITE_SITE_URL=https://waveinitsolutions.com
+ * e.g. VITE_SITE_URL=https://www.waveinitsolutions.online
  */
 
-const rawSiteUrl = import.meta.env.VITE_SITE_URL || 'https://waveinitsolutions.com'
+const rawSiteUrl = import.meta.env.VITE_SITE_URL || 'https://www.waveinitsolutions.online'
 
 // Ensure URL does not contain a trailing slash
 export const SITE_URL = rawSiteUrl.replace(/\/+$/, '')

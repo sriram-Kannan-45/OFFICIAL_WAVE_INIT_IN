@@ -13,7 +13,7 @@ function seoSyncPlugin() {
   return {
     name: 'vite-plugin-seo-sync',
     configResolved(config) {
-      const siteUrl = (process.env.VITE_SITE_URL || 'https://waveinitsolutions.com').replace(/\/+$/, '')
+      const siteUrl = (process.env.VITE_SITE_URL || 'https://www.waveinitsolutions.online').replace(/\/+$/, '')
       const publicDir = config.publicDir || resolve(__dirname, 'public')
 
       try {
@@ -47,8 +47,10 @@ function seoSyncPlugin() {
       }
     },
     transformIndexHtml(html) {
-      const siteUrl = (process.env.VITE_SITE_URL || 'https://waveinitsolutions.com').replace(/\/+$/, '')
-      return html.replace(/https:\/\/waveinitsolutions\.com/g, siteUrl)
+      const siteUrl = (process.env.VITE_SITE_URL || 'https://www.waveinitsolutions.online').replace(/\/+$/, '')
+      return html
+        .replace(/https:\/\/www\.waveinitsolutions\.online/g, siteUrl)
+        .replace(/https:\/\/waveinitsolutions\.com/g, siteUrl)
     },
   }
 }
