@@ -15,8 +15,8 @@ const contactInfo = [
   {
     icon: Briefcase,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/wave-init-227377412',
-    href: 'https://www.linkedin.com/in/wave-init-227377412/',
+    value: 'linkedin.com/company/wave-init',
+    href: 'https://www.linkedin.com/company/wave-init/',
   },
   {
     icon: Camera,

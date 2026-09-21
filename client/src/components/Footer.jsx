@@ -128,7 +128,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/wave-init-227377412/"
+                  href="https://www.linkedin.com/company/wave-init/"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-[#16a34a] transition-colors"

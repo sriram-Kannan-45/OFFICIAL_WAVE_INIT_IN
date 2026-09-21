@@ -217,5 +217,5 @@ cd server
 ## Contact
 
 - Email: [wave.init.45@gmail.com](mailto:wave.init.45@gmail.com)
-- LinkedIn: [linkedin.com/in/wave-init-227377412](https://www.linkedin.com/in/wave-init-227377412/)
+- LinkedIn: [linkedin.com/company/wave-init](https://www.linkedin.com/company/wave-init/)
 - Instagram: [@__wave__init__](https://www.instagram.com/__wave__init__)

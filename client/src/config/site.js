@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
     'Wave Init Solutions builds modern full-stack applications, AI-powered products, GenAI solutions, web platforms and intelligent automation using advanced AI-assisted development workflows.',
   email: 'wave.init.45@gmail.com',
   social: {
-    linkedin: 'https://www.linkedin.com/in/wave-init-227377412/',
+    linkedin: 'https://www.linkedin.com/company/wave-init/',
     instagram: 'https://www.instagram.com/__wave__init__',
   },
   logo: `${SITE_URL}/logo.png`,

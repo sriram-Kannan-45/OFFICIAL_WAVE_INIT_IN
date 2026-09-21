@@ -214,7 +214,7 @@ export default function CTA() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/wave-init-227377412/"
+                href="https://www.linkedin.com/company/wave-init/"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3.5 p-3.5 rounded-xl bg-slate-50/90 hover:bg-green-50/80 border border-slate-200/70 hover:border-green-300 transition-all group"
@@ -227,7 +227,7 @@ export default function CTA() {
                     LinkedIn
                   </div>
                   <div className="text-sm font-semibold text-slate-900 group-hover:text-[#16a34a] transition-colors">
-                    linkedin.com/in/wave-init
+                    linkedin.com/company/wave-init
                   </div>
                 </div>
               </a>
